@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+(Login) as (Use)
+(AdminDashboard) as (Dash1)
+(Dashboard) as (Dash2)
+
+Customer -> (Start)
+Manager -> (Start)
+
+
+note right of (Use)
+A note can also
+be on several lines
+end note
+
+note "This note is connected\nto several objects." as N2
+(Start) .. (Use)
+@enduml

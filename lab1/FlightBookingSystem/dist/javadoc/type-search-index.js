@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"coe528.lab1","l":"Flight"},{"p":"coe528.lab1","l":"FlightBooking"},{"p":"coe528.lab1","l":"Manager"},{"p":"coe528.lab1","l":"Member"},{"p":"coe528.lab1","l":"NonMember"},{"p":"coe528.lab1","l":"Passenger"},{"p":"coe528.lab1","l":"Ticket"}];updateSearchResults();

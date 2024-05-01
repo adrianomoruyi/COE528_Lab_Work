@@ -1,0 +1,168 @@
+@startuml
+class coe528.project.DashboardController {
+- Button logOutButton
+- TextField addUsername
+- TextField deleteUsername
+- Button deleteButton
+- Stage primaryStage
+- String username
+- String password
+- Manager m
+- TextField addPassword
+- TableView<Customer> cusTable
+- TableColumn<Customer,String> cusColumn
+- Button addingButton
+- AnchorPane addButton
+- void initialize()
++ void setTableContent(ArrayList<Customer>)
+- void handleButtonAction(ActionEvent)
++ void setManager(Manager)
++ boolean repOK()
++ String toString()
+}
+
+
+interface coe528.project.State {
++ String getName()
++ double purchase()
+}
+
+class coe528.project.LevelContext {
+- State customerState
++ void setState(State)
++ State getState()
++ double purchase()
++ String getName()
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.GoldState {
+- String name
++ String getName()
++ double purchase()
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.AccountController {
+- Button logOutButton
+- Text balanceText
+- Customer c
+- Manager m
+- Stage primaryStage
+~ double balance
+- TextField witAmount
+- TextField depAmount
+- Button witButton
+- Button depButton
+- Text welcomer
+- Text errorText
+- Text levelText
+- TextField purAmount
+- Button purButton
+- Text purResult
+- Double purCost
+- void handleButtonAction(ActionEvent)
+~ void setCustomer(Customer)
+~ void setManager(Manager)
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.Customer {
+- double balance
+# LevelContext context
+# State silver
+# State gold
+# State platinum
+# File cusFile
++ String fileRead(int)
++ void deleteFile()
++ void levelCheck()
++ double getBalance()
++ void setBalance(double)
++ LevelContext getContext()
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.PlatinumState {
+- String name
++ String getName()
++ double purchase()
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.Manager {
+- ArrayList<Customer> customerList
++ void addCustomer(String,String)
++ void deleteCustomer(String)
++ void deleteAll()
++ ArrayList<Customer> getCustomerList()
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.MainController {
+- TextField userText
+- TextField passText
+- TextField roleText
+- Button button
+- String username
+- String password
+- String role
+- Manager m
+- Stage homeStage
+- Text logtext
+- Button exitButton
++ void setManager(Manager)
+- void handleButtonAction(ActionEvent)
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.SilverState {
+- String name
++ String getName()
++ double purchase()
++ boolean repOK()
++ String toString()
+}
+
+
+class coe528.project.BankApplication {
++ {static} void main(String[])
++ void start(Stage)
+}
+
+abstract class coe528.project.User {
+# String username
+# String password
+# String role
++ String getUsername()
++ String getPassword()
++ String getRole()
++ boolean repOK()
++ String toString()
+}
+
+
+
+
+coe528.project.State <|.. coe528.project.LevelContext
+coe528.project.State <|.. coe528.project.GoldState
+coe528.project.User <|-- coe528.project.Customer
+coe528.project.State <|.. coe528.project.PlatinumState
+coe528.project.User <|-- coe528.project.Manager
+coe528.project.State <|.. coe528.project.SilverState
+javafx.application.Application <|-- coe528.project.BankApplication
+@enduml
